@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finance Your Flower</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+
+  <body>
+    <div class="titlePosition">
+      <h1>Finance Your Flower</h1>
+    </div>
+
+    <div class="newbox"></div>
+
+    <div class="dollarsign">$</div>
+
+    <div class="sign-in">
+      <h2>Financial Goal</h2>
+    </div>
+
+    <form id="form" onsubmit="return false;">
+      <input
+        type="number"
+        class="username_textbox"
+        id="userInput"
+        size="27"
+        style="font-size: 16pt"
+      />
+      <input
+        class="sign-in-button"
+        type="button"
+        onclick="othername();"
+        value="Set Goal!"
+      />
+    </form>
+
+    <script>
+      function othername() {
+        var input = document.getElementById("userInput").value;
+        localStorage.setItem("storageName", input);
+        window.location.href = "financial.html";
+      }
+    </script>
+    <script>
+      if (typeof Storage !== "undefined") {
+        // Store
+        localStorage.setItem("financial goal", "goal_number");
+      } else {
+        document.getElementById("result").innerHTML =
+          "Sorry, your browser does not support Web Storage...";
+      }
+    </script>
+
+    <div id="names">
+      <namebox></namebox>
+      <p style="color: black; font-size: 13px">
+        please enter the amount you would like to have by the end
+      </p>
+    </div>
+  </body>
+</html>

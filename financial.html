@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>financial page</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap"
+    />
+  </head>
+  <body style="background-color: white" onload="flower_function()">
+    <div>
+      <div class="nav"></div>
+      <script>
+        var change = 0;
+        var total = 0;
+        //var flag = 0;
+      </script>
+
+      <div class="top-centered2">
+        <p>Change Amount:</p>
+      </div>
+      <form id="form" onsubmit="return false;">
+        <input
+          type="number"
+          class="current_budget_change"
+          id="change_val"
+          size="27"
+          style="font-size: 16pt"
+        />
+        <input
+          class="current_budget_change_button"
+          type="button"
+          onclick="change_budget();"
+          value="Change Balance"
+        />
+      </form>
+
+      <script>
+        function change_budget() {
+          var change = document.getElementById("change_val").value;
+          if (isNaN(change)) {
+            change = 0;
+          }
+          localStorage.setItem("change_amount", change);
+          localStorage.setItem("total_amount", total);
+          //flag = parseInt(flag) + 1;
+          //localStorage.setItem("Visited_flag", flag);
+          window.location.href = "financial.html";
+        }
+      </script>
+
+      <script>
+        var result = localStorage.getItem("storageName");
+        /*if (!localStorage.getItem(flag)) { // not the first time
+            total = parseInt(localStorage.getItem("total_amount")) + parseInt(localStorage.getItem("change_amount"));
+        } else {
+            total = 0 + parseInt(localStorage.getItem("change_amount"));
+        }*/
+        total =
+          parseFloat(localStorage.getItem("total_amount")) +
+          parseFloat(localStorage.getItem("change_amount"));
+
+        if (isNaN(total)) {
+          total = localStorage.getItem("total_amount");
+          //total = 0; To use when there is a NaN or undefined error
+        }
+        result = parseFloat(result);
+        result = result.toFixed(2);
+        total = parseFloat(total);
+        total = total.toFixed(2);
+        localStorage.setItem("total_amount", total);
+        localStorage.setItem("change_amount", 0);
+        var percentage =
+          parseFloat(localStorage.getItem("total_amount")) /
+          parseFloat(localStorage.getItem("storageName"));
+        localStorage.setItem("percent", percentage);
+      </script>
+
+      <div class="top-centered1">
+        <p>
+          Finance Goal:
+          <script type="text/javascript">
+            document.write(result);
+          </script>
+        </p>
+      </div>
+
+      <div class="top-centered3">
+        <p>
+          Current Budget:
+          <script type="text/javascript">
+            document.write(total);
+          </script>
+        </p>
+      </div>
+    </div>
+
+    <div id="flower0">
+      <div class="flower flower-0"><span></span></div>
+    </div>
+    <div id="flower1">
+      <div class="flower flower-1"><span></span></div>
+    </div>
+    <div id="flower2">
+      <div class="flower flower-2"><span></span></div>
+    </div>
+    <div id="flower3">
+      <div class="flower flower-3"><span></span></div>
+    </div>
+    <div id="flower4">
+      <div class="flower flower-4"><span></span></div>
+    </div>
+    <div id="flower5">
+      <div class="flower flower-5"><span></span></div>
+    </div>
+    <div id="flower6">
+      <div class="flower flower-6"><span></span></div>
+    </div>
+    <script type="text/javascript">
+      function flower_function() {
+          if (
+              localStorage.getItem("percent") >= 0.0 &&
+              localStorage.getItem("percent") < 0.1
+          ) {
+              document.getElementById("flower0").style.cssText =
+                  "height:20em; position:fixed; top:90%;";
+              document.getElementById("flower1").style.cssText =
+                  "height:20em; position:fixed; top:90%;";
+              document.getElementById("flower2").style.cssText =
+                  "height:20em; position:fixed; top:90%;";
+              document.getElementById("flower3").style.cssText =
+                  "height:20em; position:fixed; top:90%;";
+              document.getElementById("flower4").style.cssText =
+                  "height:20em; position:fixed; top:90%;";
+              document.getElementById("flower5").style.cssText =
+                  "height:20em; position:fixed; top:90%;";
+              document.getElementById("flower6").style.cssText =
+                  "height:20em; position:fixed; top:90%;";
+          } else if (
+              localStorage.getItem("percent") >= 0.1 &&
+              localStorage.getItem("percent") < 0.2
+          ) {
+              document.getElementById("flower0").style.cssText =
+                  "height:20em; position:fixed; top:82%;";
+              document.getElementById("flower1").style.cssText =
+                  "height:20em; position:fixed; top:82%;";
+              document.getElementById("flower2").style.cssText =
+                  "height:20em; position:fixed; top:82%;";
+              document.getElementById("flower3").style.cssText =
+                  "height:20em; position:fixed; top:82%;";
+              document.getElementById("flower4").style.cssText =
+                  "height:20em; position:fixed; top:82%;";
+              document.getElementById("flower5").style.cssText =
+                  "height:20em; position:fixed; top:82%;";
+              document.getElementById("flower6").style.cssText =
+                  "height:20em; position:fixed; top:82%;";
+          } else if (
+              localStorage.getItem("percent") >= 0.2 &&
+              localStorage.getItem("percent") < 0.3
+          ) {
+              document.getElementById("flower0").style.cssText =
+                  "height:20em; position:fixed; top:74%;";
+              document.getElementById("flower1").style.cssText =
+                  "height:20em; position:fixed; top:74%;";
+              document.getElementById("flower2").style.cssText =
+                  "height:20em; position:fixed; top:74%;";
+              document.getElementById("flower3").style.cssText =
+                  "height:20em; position:fixed; top:74%;";
+              document.getElementById("flower4").style.cssText =
+                  "height:20em; position:fixed; top:74%;";
+              document.getElementById("flower5").style.cssText =
+                  "height:20em; position:fixed; top:74%;";
+              document.getElementById("flower6").style.cssText =
+                  "height:20em; position:fixed; top:74%;";
+          } else if (
+              localStorage.getItem("percent") >= 0.3 &&
+              localStorage.getItem("percent") < 0.4
+          ) {
+              document.getElementById("flower0").style.cssText =
+                  "height:20em; position:fixed; top:66%;";
+              document.getElementById("flower1").style.cssText =
+                  "height:20em; position:fixed; top:66%;";
+              document.getElementById("flower2").style.cssText =
+                  "height:20em; position:fixed; top:66%;";
+              document.getElementById("flower3").style.cssText =
+                  "height:20em; position:fixed; top:66%;";
+              document.getElementById("flower4").style.cssText =
+                  "height:20em; position:fixed; top:66%;";
+              document.getElementById("flower5").style.cssText =
+                  "height:20em; position:fixed; top:66%;";
+              document.getElementById("flower6").style.cssText =
+                  "height:20em; position:fixed; top:66%;";
+          } else if (
+              localStorage.getItem("percent") >= 0.4 &&
+              localStorage.getItem("percent") < 0.5
+          ) {
+              document.getElementById("flower0").style.cssText =
+                  "height:20em; position:fixed; top:58%;";
+              document.getElementById("flower1").style.cssText =
+                  "height:20em; position:fixed; top:58%;";
+              document.getElementById("flower2").style.cssText =
+                  "height:20em; position:fixed; top:58%;";
+              document.getElementById("flower3").style.cssText =
+                  "height:20em; position:fixed; top:58%;";
+              document.getElementById("flower4").style.cssText =
+                  "height:20em; position:fixed; top:58%;";
+              document.getElementById("flower5").style.cssText =
+                  "height:20em; position:fixed; top:58%;";
+              document.getElementById("flower6").style.cssText =
+                  "height:20em; position:fixed; top:58%;";
+          } else if (
+              localStorage.getItem("percent") >= 0.5 &&
+              localStorage.getItem("percent") < 0.6
+          ) {
+              document.getElementById("flower0").style.cssText =
+                  "height:20em; position:fixed; top:50%;";
+              document.getElementById("flower1").style.cssText =
+                  "height:20em; position:fixed; top:50%;";
+              document.getElementById("flower2").style.cssText =
+                  "height:20em; position:fixed; top:50%;";
+              document.getElementById("flower3").style.cssText =
+                  "height:20em; position:fixed; top:50%;";
+              document.getElementById("flower4").style.cssText =
+                  "height:20em; position:fixed; top:50%;";
+              document.getElementById("flower5").style.cssText =
+                  "height:20em; position:fixed; top:50%;";
+              document.getElementById("flower6").style.cssText =
+                  "height:20em; position:fixed; top:50%;";
+          } else if (
+              localStorage.getItem("percent") >= 0.6 &&
+              localStorage.getItem("percent") < 0.7
+          ) {
+              document.getElementById("flower0").style.cssText =
+                  "height:20em; position:fixed; top:42%;";
+              document.getElementById("flower1").style.cssText =
+                  "height:20em; position:fixed; top:42%;";
+              document.getElementById("flower2").style.cssText =
+                  "height:20em; position:fixed; top:42%;";
+              document.getElementById("flower3").style.cssText =
+                  "height:20em; position:fixed; top:42%;";
+              document.getElementById("flower4").style.cssText =
+                  "height:20em; position:fixed; top:42%;";
+              document.getElementById("flower5").style.cssText =
+                  "height:20em; position:fixed; top:42%;";
+              document.getElementById("flower6").style.cssText =
+                  "height:20em; position:fixed; top:42%;";
+          } else if (
+              localStorage.getItem("percent") >= 0.7 &&
+              localStorage.getItem("percent") < 0.8
+          ) {
+              document.getElementById("flower0").style.cssText =
+                  "height:20em; position:fixed; top:34%;";
+              document.getElementById("flower1").style.cssText =
+                  "height:20em; position:fixed; top:34%;";
+              document.getElementById("flower2").style.cssText =
+                  "height:20em; position:fixed; top:34%;";
+              document.getElementById("flower3").style.cssText =
+                  "height:20em; position:fixed; top:34%;";
+              document.getElementById("flower4").style.cssText =
+                  "height:20em; position:fixed; top:34%;";
+              document.getElementById("flower5").style.cssText =
+                  "height:20em; position:fixed; top:34%;";
+              document.getElementById("flower6").style.cssText =
+                  "height:20em; position:fixed; top:34%;";
+          } else if (
+              localStorage.getItem("percent") >= 0.8 &&
+              localStorage.getItem("percent") < 0.9
+          ) {
+              document.getElementById("flower0").style.cssText =
+                  "height:20em; position:fixed; top:26%;";
+              document.getElementById("flower1").style.cssText =
+                  "height:20em; position:fixed; top:26%;";
+              document.getElementById("flower2").style.cssText =
+                  "height:20em; position:fixed; top:26%;";
+              document.getElementById("flower3").style.cssText =
+                  "height:20em; position:fixed; top:26%;";
+              document.getElementById("flower4").style.cssText =
+                  "height:20em; position:fixed; top:26%;";
+              document.getElementById("flower5").style.cssText =
+                  "height:20em; position:fixed; top:26%;";
+              document.getElementById("flower6").style.cssText =
+                  "height:20em; position:fixed; top:26%;";
+          } else if (localStorage.getItem("percent") >= 0.9 &&
+              localStorage.getItem("percent") < 1 ){
+              document.getElementById("flower0").style.cssText =
+                  "height:20em; position:fixed; top:18%;";
+              document.getElementById("flower1").style.cssText =
+                  "height:20em; position:fixed; top:18%;";
+              document.getElementById("flower2").style.cssText =
+                  "height:20em; position:fixed; top:18%;";
+              document.getElementById("flower3").style.cssText =
+                  "height:20em; position:fixed; top:18%;";
+              document.getElementById("flower4").style.cssText =
+                  "height:20em; position:fixed; top:18%;";
+              document.getElementById("flower5").style.cssText =
+                  "height:20em; position:fixed; top:18%;";
+              document.getElementById("flower6").style.cssText =
+                  "height:20em; position:fixed; top:18%;";
+          } else if (localStorage.getItem("percent") >= 1) {
+              document.getElementById("flower0").style.cssText =
+                  "height:20em; position:fixed; top:10%;";
+              document.getElementById("flower1").style.cssText =
+                  "height:20em; position:fixed; top:10%;";
+              document.getElementById("flower2").style.cssText =
+                  "height:20em; position:fixed; top:10%;";
+              document.getElementById("flower3").style.cssText =
+                  "height:20em; position:fixed; top:10%;";
+              document.getElementById("flower4").style.cssText =
+                  "height:20em; position:fixed; top:10%;";
+              document.getElementById("flower5").style.cssText =
+                  "height:20em; position:fixed; top:10%;";
+              document.getElementById("flower6").style.cssText =
+                  "height:20em; position:fixed; top:10%;";
+          }
+      }
+    </script>
+  </body>
+</html>
